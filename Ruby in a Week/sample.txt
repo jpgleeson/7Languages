@@ -1,0 +1,4 @@
+This is a sample file
+with multiple lines.
+It's cool isn't it.
+Even if we have it with multiple times it showing up
