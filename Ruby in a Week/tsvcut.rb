@@ -1,5 +1,12 @@
 #!/usr/bin/env ruby
 
+# tsvcut is a program I like to write in languages I'm trying to learn.
+# It's something I use at work a lot, and it hits on a lot of the
+# different parts of a language you interact with - IO, parsing text
+# working with streams. Below is a sample invocation for this version.
+#
+# cat sample.tsv | ruby tsvcut.rb -t Surname Email
+
 filters = []
 include_key = false
 
@@ -12,8 +19,6 @@ ARGV.each do |arg|
         filters.push(arg)
     end
 end
-
-puts filters
 
 while !STDIN.eof?
     line = STDIN.readline
