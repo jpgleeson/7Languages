@@ -1,9 +1,16 @@
 #!/usr/bin/env ruby
 
 filters = []
+include_key = false
 
 ARGV.each do |arg|
-    filters.push(arg)
+    if arg[0,1] == "-"
+        if arg == "-t"
+            include_key = true
+        end
+    else
+        filters.push(arg)
+    end
 end
 
 puts filters
@@ -24,7 +31,8 @@ while !STDIN.eof?
             if output != ""
                 output += "\t"
             end
-            output += key + "\t" + value
+            output += key + "\t" if include_key
+            output += value
         end
     end
     puts output
