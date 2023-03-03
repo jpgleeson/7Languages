@@ -1,9 +1,15 @@
 #!/usr/bin/env ruby
 
-filter = "FirstName"
+filters = []
 
-while !ARGF.eof?
-    line = ARGF.readline
+ARGV.each do |arg|
+    filters.push(arg)
+end
+
+puts filters
+
+while !STDIN.eof?
+    line = STDIN.readline
     fields = line.split("\t")
     output = ""
 
@@ -11,8 +17,13 @@ while !ARGF.eof?
         puts "Bad input on #{line}. We need headers in the input lines"
         break
     end
+
     fields.each_slice(2) do |key, value|
-        if key == filter
+        index = filters.index(key)
+        if index
+            if output != ""
+                output += "\t"
+            end
             output += key + "\t" + value
         end
     end
