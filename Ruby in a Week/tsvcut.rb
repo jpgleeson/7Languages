@@ -12,6 +12,7 @@ include_key = false
 
 ARGV.each do |arg|
     if arg[0,1] == "-"
+        # Include field name in output lines
         if arg == "-t"
             include_key = true
         end
@@ -21,8 +22,7 @@ ARGV.each do |arg|
 end
 
 while !STDIN.eof?
-    line = STDIN.readline
-    fields = line.split("\t")
+    fields = STDIN.readline.split("\t")
     output = ""
 
     if fields.length % 2 != 0
