@@ -16,3 +16,7 @@ ferrari drive
 ford := Car clone
 ford drive = method("Put Put Put" println)
 ford drive
+
+cars := list(ferrari, ford)
+number_of_cars := cars size
+number_of_cars println
