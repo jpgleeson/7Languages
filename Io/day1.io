@@ -20,3 +20,5 @@ ford drive
 cars := list(ferrari, ford)
 number_of_cars := cars size
 number_of_cars println
+
+for (i, 0, number_of_cars - 1, cars at(i) drive)
